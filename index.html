@@ -110,23 +110,23 @@
         <div id="hero-top-deco" class="w-12 h-[1px] bg-gold-solid/50 mb-8 transition-transform duration-1000 origin-center scale-x-0"></div>
 
         <!-- Headline in 2 lines (Optimized high-contrast white text for dark backdrop) -->
-        <h1 id="hero-title" class="font-serif leading-[1.15] tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 text-[#FAF8F5]">
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700">Sua</span>
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700">Beleza</span>
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700 text-gold-solid italic font-normal">Natural,</span>
+        <h1 id="hero-title" class="font-serif leading-[1.15] tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 text-[#FAF8F5] opacity-0 translate-y-4 transition-[opacity,transform] duration-500 ease-out">
+          <span>Sua</span>
+          <span>Beleza</span>
+          <span class="text-gold-solid italic font-normal">Natural,</span>
           <br class="hidden sm:inline" />
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700">Elevada</span>
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700">com</span>
-          <span class="inline-block translate-y-6 opacity-0 transition-all duration-700 text-gold-solid font-semibold">Precisão.</span>
+          <span>Elevada</span>
+          <span>com</span>
+          <span class="text-gold-solid font-semibold">Precisão.</span>
         </h1>
 
         <!-- Small elegant subtitle (High contrast with light gray/off-white overlay) -->
-        <p id="hero-subtitle" class="text-xs md:text-sm text-[#FAF8F5]/85 max-w-xl font-light tracking-widest leading-relaxed mb-12 translate-y-6 opacity-0 transition-all duration-1000 delay-500">
+        <p id="hero-subtitle" class="text-xs md:text-sm text-[#FAF8F5]/85 max-w-xl font-light tracking-widest leading-relaxed mb-12 opacity-0 translate-y-4 transition-[opacity,transform] duration-500 ease-out">
           Harmonização facial avançada fundada no respeito à anatomia individual, entregando rejuvenescimento autêntico e segurança em <span class="text-gold-solid font-medium">Campinas – SP</span>.
         </p>
 
         <!-- Action CTAs -->
-        <div id="hero-ctas" class="flex flex-col sm:flex-row items-center gap-6 translate-y-6 opacity-0 transition-all duration-1000 delay-700">
+        <div id="hero-ctas" class="flex flex-col sm:flex-row items-center gap-6 opacity-0 translate-y-4 transition-[opacity,transform] duration-500 ease-out">
           <a id="hero-primary-cta" href="https://wa.me/message/IOEAEVQOEDERL1" target="_blank" rel="noopener noreferrer" class="bg-gold-solid hover:bg-gold-light text-white px-10 py-4 text-[10px] uppercase tracking-[0.25em] font-bold transition-all duration-400 shadow-xl shadow-gold-solid/10">
             Agendar Consulta
           </a>
@@ -750,28 +750,30 @@
           
           // Animate Hero section
           setTimeout(function() {
+            // Animate top line accent
             document.getElementById("hero-top-deco").classList.remove("scale-x-0");
             document.getElementById("hero-top-deco").classList.add("scale-x-100");
             
-            const spans = document.querySelectorAll("#hero-title span");
-            spans.forEach((span, index) => {
-              setTimeout(() => {
-                span.style.opacity = "1";
-                span.style.transform = "translateY(0)";
-              }, index * 100);
-            });
+            // Animate entire main title (single element layer, GPU-accelerated transition)
+            const title = document.getElementById("hero-title");
+            title.style.opacity = "1";
+            title.style.transform = "translateY(0)";
 
-            setTimeout(() => {
-              document.getElementById("hero-subtitle").style.opacity = "1";
-              document.getElementById("hero-subtitle").style.transform = "translateY(0)";
-            }, 600);
+            // Stagger transition of subtitle
+            setTimeout(function() {
+              const subtitle = document.getElementById("hero-subtitle");
+              subtitle.style.opacity = "1";
+              subtitle.style.transform = "translateY(0)";
+            }, 150);
 
-            setTimeout(() => {
-              document.getElementById("hero-ctas").style.opacity = "1";
-              document.getElementById("hero-ctas").style.transform = "translateY(0)";
-            }, 800);
-          }, 350);
-        }, 500);
+            // Stagger transition of call-to-actions
+            setTimeout(function() {
+              const ctas = document.getElementById("hero-ctas");
+              ctas.style.opacity = "1";
+              ctas.style.transform = "translateY(0)";
+            }, 300);
+          }, 200);
+        }, 1800);
 
         // 2. Custom trailing cursor (Desktop only with LERP effect)
         const ring = document.getElementById("custom-cursor-ring");
