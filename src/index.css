@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+  
+  --color-gold-solid: #AD9141;
+  --color-gold-light: #B49646;
+  --color-pink-nude: #D4A5A5;
+  --color-brand-dark: #FFFFFF;
+  --color-brand-sec: #FAF8F5;
+  --color-brand-card: #FFFFFF;
+  --color-text-main: #1C1A17;
+  --color-text-sec: #5E5850;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #1C1A17;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar customized for sleek gold accent */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #AD9141;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B49646;
+}
+
+/* Scroll reveal initial states */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger transition delay helpers (used in JS dynamic assignment or static CSS) */
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+.stagger-4 { transition-delay: 400ms; }
+.stagger-5 { transition-delay: 500ms; }
+
+/* Custom cursor transitions & responsive layout */
+#custom-cursor-dot, #custom-cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  will-change: transform, width, height, background-color, border-color;
+  transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+  display: none !important; /* Standard browser mouse requested by the user */
+}
+
+/* Navbar Scrolled state for backdrop blur */
+.navbar-scrolled {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(173, 145, 65, 0.15);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Header state when NOT scrolled (transparent background over dark hero) */
+#main-header:not(.navbar-scrolled) a:not([id^="mob-"]) .text-text-main {
+  color: #FFFFFF !important;
+}
+#main-header:not(.navbar-scrolled) .text-text-sec:not([id^="mob-"]) {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+#main-header:not(.navbar-scrolled) nav a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+#main-header:not(.navbar-scrolled) nav a:hover {
+  color: var(--color-gold-solid) !important;
+}
+#main-header:not(.navbar-scrolled) #nav-cta-btn {
+  color: var(--color-gold-solid) !important;
+  border-color: rgba(173, 145, 65, 0.5) !important;
+}
+#main-header:not(.navbar-scrolled) #mobile-menu-toggle {
+  color: var(--color-gold-solid) !important;
+}
+
+/* FAQ accordion smooth animation */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Snapping wrapper for testimonials on mobile */
+.testimonial-snap-wrapper {
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  .testimonial-snap-wrapper {
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+  }
+  .testimonial-snap-wrapper::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  .testimonial-card-snap {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 85%;
+  }
+}
+
+/* Base custom interactive animation */
+.hover-gold-glow:hover {
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.15);
+  border-color: rgba(201, 168, 76, 0.6);
+}
+
+/* Page Loader styling */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background-color: #FFFFFF;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Accessibility: handles users with prefers-reduced-motion active */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0.1s !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.1s !important;
+    scroll-behavior: auto !important;
+  }
+  #custom-cursor-ring, #custom-cursor-dot {
+    display: none !important;
+  }
+  html, body, a, button, [role="button"], input, label, select, textarea {
+    cursor: auto !important;
+  }
+}
+

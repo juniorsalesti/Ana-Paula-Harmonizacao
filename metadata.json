@@ -1,0 +1,6 @@
+{
+  "name": "Ana Paula Silva - Harmonização Facial",
+  "description": "Site premium de harmonização facial para a profissional Dra. Ana Paula Silva, estabelecida em Campinas - SP. Sofisticado, clean e minimalista.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
