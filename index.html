@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ana Paula Silva - Harmonização Facial</title>
+    <!-- Preload hero background image immediately at maximum priority for fast mobile rendering -->
+    <link rel="preload" href="/src/assets/images/aesthetic_clinic_bg_1781045257138.png" as="image" type="image/png" fetchpriority="high" />
     <!-- Favicon link pointing to the custom logo -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' stroke='%23C9A84C' stroke-opacity='0.2' fill='none'/%3E%3Cpath d='M38 70V30L55 30M38 52H52' stroke='%23C9A84C' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M54 70V50C54 40 70 40 70 50C70 60 54 60 54 60' stroke='%23C9A84C' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="/src/index.css" />
@@ -53,7 +55,6 @@
           <a id="nav-link-tratamentos" href="#treatments" class="hover:text-gold-solid transition-colors duration-300 relative py-1">Tratamentos</a>
           <a id="nav-link-resultados" href="#results" class="hover:text-gold-solid transition-colors duration-300 relative py-1">Resultados</a>
           <a id="nav-link-processo" href="#journey" class="hover:text-gold-solid transition-colors duration-300 relative py-1">Como Funciona</a>
-          <a id="nav-link-depoimentos" href="#testimonials" class="hover:text-gold-solid transition-colors duration-300 relative py-1">Clientes</a>
           <a id="nav-link-faq" href="#faq" class="hover:text-gold-solid transition-colors duration-300 relative py-1">Dúvidas</a>
         </nav>
 
@@ -78,7 +79,6 @@
         <a id="mob-link-tratamentos" href="#treatments" class="hover:text-gold-solid transition-colors py-2.5 w-full block">Tratamentos</a>
         <a id="mob-link-resultados" href="#results" class="hover:text-gold-solid transition-colors py-2.5 w-full block">Resultados</a>
         <a id="mob-link-processo" href="#journey" class="hover:text-gold-solid transition-colors py-2.5 w-full block">Como Funciona</a>
-        <a id="mob-link-depoimentos" href="#testimonials" class="hover:text-gold-solid transition-colors py-2.5 w-full block">Depoimentos</a>
         <a id="mob-link-faq" href="#faq" class="hover:text-gold-solid transition-colors py-2.5 w-full block">Dúvidas</a>
         <a id="mob-cta-btn" href="https://wa.me/message/IOEAEVQOEDERL1" target="_blank" rel="noopener noreferrer" class="mt-4 border border-gold-solid text-gold-solid px-8 py-3.5 w-11/12 max-w-[280px] hover:bg-gold-solid hover:text-white transition-colors duration-300 font-semibold inline-block">
           Agendar Consulta
@@ -93,7 +93,10 @@
         <img src="/src/assets/images/aesthetic_clinic_bg_1781045257138.png" 
              alt="Ambiente Estético Luxo" 
              class="w-full h-full object-cover opacity-55 select-none pointer-events-none" 
-             referrerpolicy="no-referrer" />
+             referrerpolicy="no-referrer"
+             fetchpriority="high"
+             loading="eager"
+             decoding="sync" />
         <!-- Premium vignette and color gradient: transitional dark at the top, transitioning beautifully to pure white at the bottom -->
         <div class="absolute inset-0 bg-gradient-to-b from-[#11100F]/75 via-[#11100F]/30 to-white"></div>
       </div>
@@ -595,73 +598,7 @@
       </div>
     </section>
 
-    <!-- SECTION 6: TESTIMONIALS (EDITORIAL SNAP SLIDER) -->
-    <section id="testimonials" class="relative py-24 md:py-32 bg-brand-dark">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <!-- Section Header -->
-        <div class="reveal max-w-xl mb-16">
-          <p class="text-[10px] uppercase tracking-[0.25em] text-gold-solid font-medium mb-3">Relatos de Pacientes</p>
-          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-text-main font-semibold tracking-tight">
-            Elegância Reconhecida
-          </h2>
-          <div class="w-12 h-[1px] bg-gold-solid mt-4"></div>
-        </div>
-
-        <!-- Snap carousel responsive format -->
-        <div class="testimonial-snap-wrapper flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-4 -mx-6 px-6 md:mx-0 md:px-0">
-          
-          <!-- Card 1 -->
-          <div class="testimonial-card-snap bg-brand-sec border border-gold-solid/12 p-8 flex flex-col justify-between transition-all duration-300 hover:border-gold-solid/30 min-h-[280px]">
-            <div>
-              <div class="text-gold-solid mb-4 text-xs tracking-wider">★★★★★</div>
-              <p class="font-serif italic text-text-main text-sm md:text-base leading-relaxed mb-6 font-light">
-                "Fazer o preenchimento de lábios com a Ana Paula foi transformador. Tinha receio de ficar artificial, mas ficou extremamente elegante. Ela é incrivelmente calma e tem a mão muito leve!"
-              </p>
-            </div>
-            <div>
-              <h4 class="text-xs uppercase tracking-wider text-text-main font-semibold mb-1">Mariana G. Costa</h4>
-              <p class="text-[9px] text-gold-solid/80 tracking-widest font-mono">CAMPINAS — SP</p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="testimonial-card-snap bg-brand-sec border border-gold-solid/12 p-8 flex flex-col justify-between transition-all duration-300 hover:border-gold-solid/30 min-h-[280px]">
-            <div>
-              <div class="text-gold-solid mb-4 text-xs tracking-wider">★★★★★</div>
-              <p class="font-serif italic text-text-main text-sm md:text-base leading-relaxed mb-6 font-light">
-                "O protocolo de Bioestimuladores trouxe de volta a firmeza da minha pele que perdi há anos. Ana Paula me explicou toda a fisiologia celular com muita paciência. Sensacional!"
-              </p>
-            </div>
-            <div>
-              <h4 class="text-xs uppercase tracking-wider text-text-main font-semibold mb-1">Dra. Beatriz Santos</h4>
-              <p class="text-[9px] text-gold-solid/80 tracking-widest font-mono">CAMPINAS — SP</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="testimonial-card-snap bg-brand-sec border border-gold-solid/12 p-8 flex flex-col justify-between transition-all duration-300 hover:border-gold-solid/30 min-h-[280px]">
-            <div>
-              <div class="text-gold-solid mb-4 text-xs tracking-wider">★★★★★</div>
-              <p class="font-serif italic text-text-main text-sm md:text-base leading-relaxed mb-6 font-light">
-                "Fiz harmonização global do queixo e queixei melhora espetacular no perfil da minha mandíbula. Espaço impecável, atendimento VIP individual de alto nível."
-              </p>
-            </div>
-            <div>
-              <h4 class="text-xs uppercase tracking-wider text-text-main font-semibold mb-1">Camila de Alencar</h4>
-              <p class="text-[9px] text-gold-solid/80 tracking-widest font-mono">CAMPINAS — SP</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Swipe Indicator on Mobile -->
-        <p class="text-[10px] text-text-sec text-center mt-6 md:hidden tracking-wider">
-          &larr; deslize lateral para mais relatos &rarr;
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 7: FAQ (ACCORDION) -->
+    <!-- SECTION 6: FAQ (ACCORDION) -->
     <section id="faq" class="relative py-24 md:py-32 bg-brand-sec">
       <div class="max-w-4xl mx-auto px-6">
         <!-- Section Header -->
